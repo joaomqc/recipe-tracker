@@ -1,0 +1,57 @@
+textarea {
+    min-height: 60px;
+}
+
+.ingredient-button {
+    width: 40px;
+}
+
+.ingredient-button-remove {
+    color: red;
+}
+
+.ingredient-button-add {
+    color: deepskyblue;
+}
+
+.ingredient-grid :not(:last-child) > :first-child  {
+    border-bottom-left-radius: 0;
+}
+
+.ingredient-grid :not(:last-child) > :last-child {
+    border-bottom-right-radius: 0;
+}
+
+.ingredient-grid :not(:first-child) > :first-child {
+    border-top-left-radius: 0;
+}
+
+.ingredient-grid :not(:first-child) > :last-child {
+    border-top-right-radius: 0;
+}
+
+.symbol-cell {
+    border: 0;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 40px;
+
+    button {
+        background-color: transparent;
+        border: 1px solid transparent;
+    }
+}
+
+.ingredients-table {
+    border: 0;
+}
+
+.ingredient-input {
+    border: 0;
+    border-radius: 0;
+
+    &-cell {
+        padding: 0;
+    }
+}

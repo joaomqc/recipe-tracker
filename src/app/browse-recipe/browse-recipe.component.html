@@ -1,0 +1,41 @@
+<div class="wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <input
+                type="search"
+                class="form-control ds-input"
+                placeholder="Search..."
+                [(ngModel)]="searchInput"
+                (ngModelChange)="updateList()" />
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <div class="mb-3">Type of Recipe</div>
+                <div *ngFor="let recipeType of recipeTypes" class="ml-3 mb-3">
+                    <input (change)="recipeType.isChecked = !recipeType.isChecked; updateList()" type="checkbox"/>
+                    <label class="ml-2">{{recipeType.name}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="content">
+        <div *ngIf="filteredRecipes.length > 0" class="list-group">
+            <a *ngFor="let recipe of filteredRecipes"
+                class="list-group-item list-group-item-action"
+                [routerLink]="['/recipe', recipe.id]" >
+                <div class="d-flex w-100 justify-content-between">
+                    <h4>{{recipe.name}}</h4>
+                    <small>{{recipe.type}}</small>
+                </div>
+            </a>
+        </div>
+        <div class="border rounded-lg py-3 px-4 leading-normal" *ngIf="filteredRecipes.length === 0" >
+            <span class="text-center font-size-l text-info">
+                Could not find any recipes
+            </span>
+        </div>
+    </div>
+</div>
